@@ -1,4 +1,5 @@
 <?php
+    include 'install.php';
     include 'controllers/empresas.php';
     include 'controllers/fornecedores.php';
     switch ($_SERVER['PATH_INFO'])
