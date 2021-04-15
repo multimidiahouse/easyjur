@@ -4,7 +4,7 @@
             <form id="cadastro-form" method="post" action="/empresas/create">
                 <div class="modal-header">
                     <h5 class="modal-title">Cadastro de Empresas</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
+                    <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group mt-3">
                         <label for="CNPJ">CNPJ:</label>
-                        <input class="form-control" name="CNPJ" id="CNPJ" maxlength="14" required onkeypress="return somenteNumeros(event);" />
+                        <input class="form-control CNPJ" name="CNPJ" id="CNPJ" maxlength="14" required onkeypress="return somenteNumeros(event);" />
                     </div>
                     <div class="form-group mt-3">
                         <label for="NOMEFANTASIA">Nome Fantasia:</label>

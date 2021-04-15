@@ -4,7 +4,7 @@
             <form id="cadastro-form" method="post" action="/fornecedores/create">
                 <div class="modal-header">
                     <h5 class="modal-title">Cadastro de Fornecedores</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
+                    <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close" onclick="hideModal();">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
