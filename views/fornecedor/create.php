@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group mt-3">
                         <label for="TELEFONE">TELEFONE:</label>
-                        <input class="form-control" type="text" name="TELEFONE" maxlength="15" required />
+                        <input class="form-control" type="text" name="TELEFONE" id="TELEFONE" maxlength="15" required />
                     </div>
                     <div id="ADICIONALPF" style="display:none;">
                         <div class="form-group mt-3">
