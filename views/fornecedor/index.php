@@ -10,12 +10,17 @@
         <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css" rel="stylesheet" >
+        <link href="/views/assets/css/main.css" rel="stylesheet">
         <title>Easyjur</title>
     </head>
     <body>
+        <div class="preloader">
+            <img src="/views/assets/svg/preloader.svg" />
+        </div>
         <div class="container">
             <div class="row">
-                <div class="col-12 m-2 p-2">
+                <div class="col-12 ml-2 mt-2 mr-2 mb-2 pl-2 pt-2 pr-2 pb-2">
                     <table class="table table-striped" id="lista">
                         <thead>
                             <tr>
@@ -53,118 +58,7 @@
         <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-        <script>
-            $(document).ready( function () {
-                $('#lista').DataTable({
-                    dom: 'Bfrtip',
-                    language: { url: '/views/assets/Portuguese-Brasil.json' },
-                    buttons: [
-                        {
-                            text: 'Voltar',
-                            action: function () {
-                                window.location.href = '/empresas';
-                            },
-                            className: 'btn btn-primary'
-                        },
-                        {
-                            text: 'Novo',
-                            action: function ( e, dt, node, config ) {
-                                showModal();
-                            },
-                            className: 'btn btn-primary'
-                        }
-                    ]
-                });
-
-                window.showModal = function ()
-                {
-                    $('#cadastro').modal('show');
-                };
-
-                window.hideModal = function ()
-                {
-                    $('#cadastro').modal('hide');
-                };
-
-                $("#CPFCNPJ").keyup(function(){
-                    var value = $("#CPFCNPJ").val();
-                    value = value.replace(/\D/g, "");
-                    var tamanho = value.length;
-
-                    if (tamanho == 11) {
-                        if(!validaCPF(value)) $("#CPFCNPJ").addClass('is-invalid');
-                        else $("#CPFCNPJ").removeClass('is-invalid');
-
-                        $("#ADICIONALPJ").hide();
-                        $("#ADICIONALPF").show();
-                        $("#RG").attr('required', '');
-                        $("#DATANASCIMENTO").attr('required', '');
-                    }
-
-                    if (tamanho > 11) {
-                        $("#ADICIONALPF").hide();
-                        $("#CPFCNPJ").removeClass('is-invalid');
-
-                        $("#RG").removeAttr('required');
-                        $("#DATANASCIMENTO").removeAttr('required');
-
-                        $("#ADICIONALPJ").show();
-                        if ($("#UF").val() == 'DF')
-                        {
-                            $("#INSCESTADUAL").show();
-                            $("input[name='INSCESTADUAL']").attr('required', '');
-                        }
-                        else
-                        {
-                            $("#INSCMUNICIPAL").show();
-                            $("input[name='INSCMUNICIPAL']").attr('required', '');
-                        }
-                    }
-
-                    if (tamanho == 14)
-                    {
-                        $.ajax({
-                            url: "https://www.receitaws.com.br/v1/cnpj/" + value, 
-                            success: function(result) {
-                                $("input[name='NOME']").val(result.fantasia);
-                            }
-                        });
-                    }
-                });
-
-                window.validaCPF = function(CPF)
-                {
-                    var Soma;
-                    var Resto;
-                    Soma = 0;
-                    if (CPF == "00000000000") return false;
-
-                    for (i=1; i<=9; i++) Soma = Soma + parseInt(CPF.substring(i-1, i)) * (11 - i);
-                    Resto = (Soma * 10) % 11;
-
-                    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-                    if (Resto != parseInt(CPF.substring(9, 10)) ) return false;
-
-                    Soma = 0;
-                    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(CPF.substring(i-1, i)) * (12 - i);
-                    Resto = (Soma * 10) % 11;
-
-                    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-                    if (Resto != parseInt(CPF.substring(10, 11) ) ) return false;
-                    return true;
-                };
-
-                window.somenteNumeros = function (e) 
-                {
-                    var charCode = e.charCode ? e.charCode : e.keyCode;
-                    if (charCode != 8 && charCode != 9) {
-                        if (charCode < 48 || charCode > 57) {
-                            return false;
-                        }
-                    }
-                };
-
-            });
-        </script>
+        <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+        <script src="/views/assets/js/fornecedor.js"></script>
     </body>
 </html>

@@ -1,0 +1,30 @@
+@import "/views/assets/css/datatables.css";
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #04192c;
+}
+
+.preloader {
+    z-index: 999999;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(235,255,255,0.65);
+    display: none;
+}
+
+.preloader img {
+    margin: auto; 
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+
+thead {
+    background-color: #6c757d; 
+    color: white;
+}

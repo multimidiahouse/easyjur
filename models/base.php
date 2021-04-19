@@ -5,6 +5,6 @@ class base
     public $HOST = 'localhost:3306';
     public $BASE = 'easyjur';
     public $USER = 'root';
-    public $PASS = '';
+    public $PASS = '10011984';
 }
 ?>
