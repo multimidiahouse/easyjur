@@ -13,7 +13,7 @@
                         <label for="CNPJ">CNPJ:</label>
                         <input class="form-control CNPJ" name="CNPJ" id="CNPJ" maxlength="14" required onkeypress="return somenteNumeros(event);" />
                     </div>
-                    <div class="alert alert-danger d-none" role="alert"></div>                    
+                    <div class="alert alert-danger d-none" role="alert"></div>
                     <div id="cadastro-form-dados" class="d-none">
                         <div class="form-group">
                             <label for="UF">UF:</label>
